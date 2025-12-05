@@ -2,16 +2,16 @@ package br.com.knowlege.controledespesas.service;
 
 import java.util.List;
 
-import br.com.knowlege.controledespesas.model.Expense;
+import br.com.knowlege.controledespesas.dto.ExpenseDTO;
 
 public interface ExpenseService {
-    Expense save(Expense expense);
+    ExpenseDTO save(ExpenseDTO expenseDTO);
 
-    List<Expense> findAll();
+    List<ExpenseDTO> findAll();
 
-    Expense findById(Long id);
+    ExpenseDTO findById(Long id);
 
     void deleteById(Long id);
 
-    Expense update(Long id, Expense expense);
+    ExpenseDTO update(ExpenseDTO expenseDTO);
 }

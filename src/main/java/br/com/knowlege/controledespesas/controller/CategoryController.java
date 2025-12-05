@@ -10,32 +10,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.com.knowlege.controledespesas.dto.ExpenseDTO;
-import br.com.knowlege.controledespesas.service.ExpenseService;
+import br.com.knowlege.controledespesas.model.Category;
+import br.com.knowlege.controledespesas.service.CategoryService;
 
 @RestController
-@RequestMapping("/api/expenses")
+@RequestMapping("/categories")
 @CrossOrigin(origins = "*")
-public class ExpenseController {
-    private final ExpenseService service;
+public class CategoryController {
+    private final CategoryService service;
 
-    public ExpenseController(ExpenseService service) {
-        this.service = service;
+    public CategoryController(CategoryService categoryService) {
+        this.service = categoryService;
     }
 
     @PostMapping
-    public ExpenseDTO create(@RequestBody ExpenseDTO expense) {
-        return service.save(expense);
+    public Category create(@RequestBody Category category) {
+        return service.save(category);
     }
 
     @GetMapping
-    public List<ExpenseDTO> findAll() {
+    public List<Category> getAll() {
         return service.findAll();
     }
 
     @GetMapping("/{id}")
-    public ExpenseDTO findById(@PathVariable Long id) {
+    public Category findById(@PathVariable Long id) {
         return service.findById(id);
     }
 
